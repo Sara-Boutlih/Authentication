@@ -471,7 +471,7 @@ public class diversContoller {
 	
 	@GetMapping("/HorsCourse/{id}")
 	public Set<String> HorsCourse(@PathVariable int id) {
-		//mm
+		//en mm
 		Set<String> col = new TreeSet<String>();
 		
 		switch(id) {
@@ -530,7 +530,7 @@ public class diversContoller {
 		return col;
 	}
 	
-	@GetMapping("/ModeleNeo")
+	/*@GetMapping("/ModeleNeo")
 	public Set<String> ModeleNeo() {
 		
 		Set<String> col = new TreeSet<String>();
@@ -541,7 +541,7 @@ public class diversContoller {
 			col.add("Néo S Skinplate");
 			col.add("Néo I Inox");
 		return col;
-	}
+	}*/
 	
 	@GetMapping("/revetementSol")
 	public Set<String> revetementSol() {
@@ -631,4 +631,30 @@ public class diversContoller {
 		return col;
 	}
 	
+	@GetMapping("/Destinataire")
+	public Set<String> destinataire() {
+		
+		Set<String> col = new TreeSet<String>();
+		
+			col.add("Particulier");
+			col.add("Société");
+			col.add("Commerçant");			
+			col.add("Industriel");
+			
+		return col;
+	}
+	
+	@GetMapping("/Disponibilité")
+	public Set<String> disponibilite() {
+		
+		Set<String> col = new TreeSet<String>();
+		
+			col.add("8H-12H");
+			col.add("12H-14H");
+			col.add("14H-18H");			
+			col.add("18H-20H");
+			col.add("Peu importe");
+
+		return col;
+	}
 }
