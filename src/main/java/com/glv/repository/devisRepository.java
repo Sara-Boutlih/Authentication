@@ -5,6 +5,6 @@ import org.springframework.stereotype.Repository;
 
 import com.glv.entities.Devis;
 @Repository
-public interface devisRepository extends JpaRepository<Devis, Long>{
+public interface DevisRepository extends JpaRepository<Devis, Long>{
 
 }
