@@ -71,7 +71,6 @@ public class Devis implements Serializable {
 	private String emailClient;
 	private String tel;
 	private String disponibilité;
-	@Value("${devis.etat:En attente}")
 	private String etat;
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name="id_user")
@@ -139,7 +138,7 @@ public class Devis implements Serializable {
 		this.emailClient = emailClient;
 		this.tel = tel;
 		this.disponibilité = disponibilité;
-		this.etat = etat;
+		this.etat = "En attente";
 		this.user = user;
 	}
 	
