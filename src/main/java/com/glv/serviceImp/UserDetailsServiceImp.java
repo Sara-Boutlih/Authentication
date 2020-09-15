@@ -14,14 +14,14 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import com.glv.entities.Utilisateur;
-import com.glv.service.AccountService;
+import com.glv.service.utilisateurService;
 @Service
 public class UserDetailsServiceImp implements UserDetailsService {
 	@Autowired
-	private AccountService accountService;
+	private utilisateurService utilisateurService;
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		Utilisateur user=accountService.findUserByUsername(username);
+		Utilisateur user=utilisateurService.findUserByUsername(username);
 		if(user==null) throw new UsernameNotFoundException(username);
 		Collection<GrantedAuthority> authorities=new ArrayList<>();
 		user.getRoles().forEach(r->{

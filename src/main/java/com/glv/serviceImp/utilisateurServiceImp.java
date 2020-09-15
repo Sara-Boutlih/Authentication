@@ -7,13 +7,13 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.glv.entities.Utilisateur;
-import com.glv.repository.UtilisateurRepository;
+import com.glv.repository.utilisateurRepository;
 import com.glv.service.utilisateurService;
 @Service
 public class utilisateurServiceImp implements utilisateurService {
 
 	@Autowired
-	private UtilisateurRepository userRepository;
+	private utilisateurRepository userRepository;
 	@Autowired
 	private BCryptPasswordEncoder bCryptPasswordEncoder;
 	@Override
@@ -25,20 +25,19 @@ public class utilisateurServiceImp implements utilisateurService {
 
 	@Override
 	public void DeleteUser(Utilisateur utilisateur) {
-		// TODO Auto-generated method stub
 		
+		userRepository.delete(utilisateur);
 	}
 
 	@Override
 	public List<Utilisateur> allUtilisateur() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return userRepository.findAll();
 	}
 
 	@Override
 	public Utilisateur GetUtilisateurByid(long id) {
-		// TODO Auto-generated method stub
-		return null;
+		return userRepository.findById(id).get();
 	}
 	@Override
 	public Utilisateur findUserByUsername(String username) {	

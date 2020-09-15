@@ -15,30 +15,34 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.glv.entities.Utilisateur;
-import com.glv.repository.RoleRepository;
-import com.glv.repository.UtilisateurRepository;
+import com.glv.repository.roleRepository;
+import com.glv.repository.utilisateurRepository;
 import com.glv.service.AccountService;
+import com.glv.service.utilisateurService;
 @RestController
 public class AccountRestController {
 	@Autowired
 	private AccountService accountService;
 	
 	@Autowired
-	private UtilisateurRepository utilisateurRepository;
+	private utilisateurService utilisateurservice;
 	
 	@Autowired
-	private RoleRepository roleRepository;
+	private utilisateurRepository utilisateurRepository;
+	
+	@Autowired
+	private roleRepository roleRepository;
 	
 	@PostMapping("/register")
 	public Utilisateur register(@RequestBody RegisterForm userForm){
 		if(!userForm.getPassword().equals(userForm.getRepassword())) throw new  RuntimeException("you must comfirm your PSW");
-		Utilisateur user=accountService.findUserByUsername(userForm.getUsername());
+		Utilisateur user=utilisateurservice.findUserByUsername(userForm.getUsername());
 		if(user!=null)
 			throw new  RuntimeException("this user exist");
 		Utilisateur appUser=new Utilisateur();
 		appUser.setUsername(userForm.getUsername());
 		appUser.setPassword(userForm.getPassword());
-		accountService.saveUser(appUser);
+		utilisateurservice.addUtilisateur(appUser);
 		accountService.addRoleToUser(userForm.getUsername(), "USER");
 		return appUser;
 	}
