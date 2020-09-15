@@ -21,13 +21,6 @@ public class AccountServiceImp implements AccountService{
 	private RoleRepository roleRepository;
 	
 	@Override
-	public Utilisateur saveUser(Utilisateur user) {
-		String hashPW=bCryptPasswordEncoder.encode(user.getPassword());
-		user.setPassword(hashPW);
-		return userRepository.save(user);
-	}
-
-	@Override
 	public Role saveRole(Role role) {
 		return roleRepository.save(role);
 	}
@@ -38,10 +31,8 @@ public class AccountServiceImp implements AccountService{
 		Utilisateur user=userRepository.findByUsername(username);
 		user.getRoles().add(role);
 	}
+	
+}
 
-	@Override
-	public Utilisateur findUserByUsername(String username) {	
-			return userRepository.findByUsername(username);
-	}
-	}
+
 

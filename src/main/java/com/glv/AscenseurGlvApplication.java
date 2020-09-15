@@ -6,13 +6,13 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
-import com.glv.repository.DevisRepository;
+import com.glv.repository.DevisRespository;
 import com.glv.service.AccountService;
 
 @SpringBootApplication
 public class AscenseurGlvApplication {
 	@Autowired
-	private DevisRepository devisRepository;
+	private DevisRespository devisRepository;
 	@Autowired
 	private AccountService accountService;
 
