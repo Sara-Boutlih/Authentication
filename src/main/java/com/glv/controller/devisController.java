@@ -28,9 +28,10 @@ public class devisController {
 	//API Ajouter devis
 	
 	@PostMapping("/addDevis")
-   public Devis addDevis(@RequestBody Devis devis) {
+   public Devis addDevis(@RequestBody Devis devis/*,@RequestParam("date") 
+   @DateTimeFormat(pattern = "dd/MM/yyyy") Date datedevis*/) {
 		
-		return devisService.addDevis(devis);
+		return devisService.addDevis(devis/*,datedevis*/);
 	}
 	//API pour retourner tous les devis
 	@GetMapping("/allDevis")
@@ -53,8 +54,7 @@ public class devisController {
 		Optional<Devis> optional =  devisServiceImp.findDevisByid(id);
 		Devis d =new Devis();
 		if(optional.isPresent()) {
-			d= devisService.updateDevis(devis);
-			
+			d= devisService.updateDevis(devis);			
 			
 		}
 		return d;

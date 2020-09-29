@@ -10,7 +10,7 @@ import com.glv.entities.Devis;
 @Component
 public interface devisService {
 
-	public Devis addDevis(Devis devis);
+	public Devis addDevis(Devis devis/*, Date datedevis*/);
 	public List<Devis> allDevis();
 	public Devis getDevisByID(int id);
 	public Devis updateDevis(Devis devis);
